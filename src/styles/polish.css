@@ -1,0 +1,220 @@
+/* v17 polish: richer inner-page heroes, cards, steps, accordions and CTA.
+   Loaded last, so it only refines; nothing in earlier files needs to change. */
+
+:root{
+  --gold-soft:#FBF6E8;
+  --gold-edge:#EBD9A8;
+  --lift:0 2px 4px rgba(23,60,48,.04),0 30px 60px -34px rgba(23,60,48,.45);
+}
+
+/* ---------- Section headings: one ornament, no duplicate underline ---------- */
+.ip__sec .head h2::after,.ip__cta h2::after{display:none}
+.ip__sec .head{margin-bottom:clamp(26px,3.4vw,44px)}
+.ip__sec .head h2{font-size:clamp(28px,3.4vw,40px)}
+
+/* ---------- Hero ---------- */
+.ip__hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:calc(var(--nav-h) + 36px) 0 clamp(40px,5vw,72px);
+  background:
+    radial-gradient(48% 70% at 92% 8%,rgba(214,188,131,.34),transparent 70%),
+    radial-gradient(40% 60% at 0% 100%,rgba(23,74,56,.09),transparent 70%),
+    linear-gradient(180deg,#fff,#FAFBF9);
+}
+.ip__hero::before{ /* fine dotted texture, fades out downward */
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.55;
+  background-image:radial-gradient(rgba(23,60,48,.13) 1px,transparent 1.2px);
+  background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);
+}
+.ip__hero::after{ /* hairline gold divider */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold-line);
+}
+.ip__hin{gap:clamp(28px,5vw,88px)}
+.ip__lab{
+  display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;
+  font-size:12px;letter-spacing:.24em;
+}
+.ip__lab::before{content:"";width:30px;height:1px;background:var(--metal)}
+.ip__hero h1{
+  font-size:clamp(34px,4.8vw,60px);line-height:1.08;letter-spacing:-.028em;text-wrap:balance;
+}
+.ip__hero p:not(.ip__lab){margin-top:20px}
+
+/* fact chips */
+.ip__chips{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0;padding:0;list-style:none}
+.ip__chips li{
+  display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 14px;
+  border:1px solid var(--gold-edge);border-radius:999px;background:rgba(255,255,255,.85);
+  font-size:13.5px;font-weight:600;color:var(--forest);
+  box-shadow:0 8px 18px -14px rgba(23,60,48,.5);
+  transition:transform .35s var(--ease),border-color .35s,background .35s;
+}
+.ip__chips li::before{
+  content:"";width:7px;height:7px;flex:none;transform:rotate(45deg);
+  background:var(--gold-grad);
+}
+.ip__chips li:hover{transform:translateY(-2px);border-color:var(--metal);background:#fff}
+
+/* image: offset gold frame + floating glass badge */
+.ip__art{position:relative;padding:0 16px 16px 0}
+.ip__art::before{
+  content:"";position:absolute;inset:16px 0 0 16px;z-index:0;
+  border:1px solid var(--champagne);border-radius:24px 120px 24px 24px;
+}
+.ip__art .ip__img{
+  position:relative;z-index:1;aspect-ratio:4/3.4;
+  border-radius:24px 120px 24px 24px;
+  box-shadow:0 44px 80px -44px rgba(23,60,48,.55);
+}
+.ip__art .ip__img img{transition:transform 1.6s var(--ease)}
+.ip__art:hover .ip__img img{transform:scale(1.05)}
+.ip__badge{
+  position:absolute;z-index:2;left:-22px;bottom:44px;display:grid;gap:2px;
+  padding:14px 22px 14px 20px;border-radius:16px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--beige-line);border-left:4px solid var(--champagne);
+  box-shadow:0 26px 50px -26px rgba(23,60,48,.55);
+  animation:ipfloat 6s ease-in-out infinite;
+}
+.ip__badge b{font-size:clamp(20px,2vw,26px);line-height:1.1;color:var(--forest);letter-spacing:-.02em}
+.ip__badge span{font-size:12.5px;color:var(--ink-soft)}
+@keyframes ipfloat{50%{transform:translateY(-8px)}}
+
+/* ---------- Cards share one premium treatment ---------- */
+.ip__steps li,.ip__mo,.ip__ex>*,.ip__item,.ip__big{
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s,background .4s;
+}
+
+/* steps */
+.ip__steps li{
+  position:relative;overflow:hidden;border-radius:20px;padding:28px 26px;
+}
+.ip__steps li::after{ /* gold top accent that draws in on hover */
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--gold-grad);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);
+}
+.ip__steps li:hover{transform:translateY(-6px);border-color:var(--champagne);box-shadow:var(--lift)}
+.ip__steps li:hover::after{transform:scaleX(1)}
+.ip__steps .ip__n{
+  width:42px;height:42px;border:0;color:#3B2D08;font-size:16px;font-weight:700;
+  background:var(--gold-grad);box-shadow:0 10px 20px -10px rgba(184,146,47,.9);
+}
+.ip__steps svg{position:absolute;right:22px;top:24px;width:26px;height:26px;color:var(--champagne);opacity:.9}
+
+/* months */
+.ip__months{gap:14px 20px}
+.ip__mo{
+  grid-template-columns:96px 1fr 76px;padding:18px 22px;border-radius:16px;
+  box-shadow:0 1px 2px rgba(23,60,48,.04);
+}
+.ip__mo:hover{transform:translateY(-3px);border-color:var(--champagne);box-shadow:var(--lift)}
+.ip__mo b{color:var(--forest);font-size:15px}
+.ip__mo em{font-size:17px;color:var(--gold-ink)}
+.ip__bar{height:10px}
+.ip__bar i{border-radius:10px;box-shadow:inset 0 -2px 3px rgba(122,95,34,.25)}
+.ip__total{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:6px 12px;
+  margin:30px auto 0;padding:20px 28px;width:fit-content;max-width:100%;
+  border:1px solid var(--champagne);border-radius:18px;background:linear-gradient(135deg,#fff,var(--gold-soft));
+  font-size:16px;
+}
+.ip__total b{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;background:linear-gradient(100deg,#7A5F22,#B89B62 60%,#D6BC83);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* about rows: gold marker on hover */
+.ip__row{position:relative;padding:24px 18px;border-radius:0;transition:background .35s,padding-left .35s var(--ease)}
+.ip__row::before{content:"";position:absolute;left:0;top:-1px;bottom:-1px;width:3px;background:var(--gold-grad);transform:scaleY(0);transform-origin:center;transition:transform .4s var(--ease)}
+.ip__row:hover{background:linear-gradient(90deg,var(--gold-soft),transparent 80%);padding-left:28px}
+.ip__row:hover::before{transform:scaleY(1)}
+.ip__row span{font-size:15px;letter-spacing:.08em}
+.ip__row:last-child{border-bottom:1px solid var(--beige-line)}
+
+/* commitments */
+.ip__two{gap:18px}
+.ip__item{padding:26px 26px 24px;border:1px solid var(--beige-line);border-radius:20px;background:#fff}
+.ip__item:hover{transform:translateY(-4px);border-color:var(--champagne);box-shadow:var(--lift)}
+.ip__item svg{width:44px;height:44px;padding:11px;border-radius:12px;background:var(--gold-soft);color:var(--gold-ink);margin-bottom:14px}
+
+/* price block */
+.ip__big{position:relative;overflow:hidden;border-radius:26px;box-shadow:var(--lift)}
+.ip__big::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(214,188,131,.45),transparent 70%)}
+.ip__big b{background:linear-gradient(100deg,#7A5F22,#B89B62 60%,#D6BC83);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ip__dl>div{padding:15px 4px;transition:background .3s}
+.ip__dl>div:hover{background:var(--gold-soft)}
+.ip__dl dd{color:var(--forest)}
+
+/* example cards */
+.ip__ex>*{border-radius:22px;padding:30px 28px}
+.ip__ex>*:hover{transform:translateY(-5px);box-shadow:var(--lift)}
+.ip__ex small{letter-spacing:.14em;text-transform:uppercase;font-size:11.5px}
+.ip__ex .is-hi{
+  color:#fff;border-color:transparent;
+  background:radial-gradient(70% 90% at 100% 0%,rgba(214,188,131,.35),transparent 70%),linear-gradient(150deg,var(--forest),var(--emerald));
+}
+.ip__ex .is-hi small{color:var(--champagne)}
+.ip__ex .is-hi b{background:linear-gradient(100deg,#F1DC9A,#D6BC83 60%,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ip__ex .is-hi span{color:rgba(255,255,255,.8)}
+
+/* accordions as cards */
+.ip__acc{columns:1;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px;align-items:start}
+.ip__acc details{border:1px solid var(--beige-line);border-radius:16px;background:#fff;padding:0 22px;transition:border-color .3s,box-shadow .3s,background .3s}
+.ip__acc details:last-child{border-bottom:1px solid var(--beige-line)}
+.ip__acc details:hover{border-color:var(--champagne)}
+.ip__acc details[open]{background:linear-gradient(180deg,#fff,var(--gold-soft));border-color:var(--champagne);box-shadow:0 20px 40px -30px rgba(23,60,48,.45)}
+.ip__acc summary{padding:20px 34px 20px 0;font-size:15.5px;line-height:1.45}
+.ip__acc summary::-webkit-details-marker{display:none}
+.ip__acc summary::after{
+  top:50%;right:0;transform:translateY(-50%);width:26px;height:26px;display:grid;place-items:center;
+  border-radius:50%;background:var(--gold-soft);font-size:18px;line-height:1;color:var(--gold-ink);transition:background .3s,color .3s;
+}
+.ip__acc details[open] summary::after{background:var(--forest);color:var(--champagne)}
+.ip__acc p{padding:0 0 22px;font-size:15px}
+
+/* ---------- Closing CTA: dark forest band ---------- */
+.ip__cta{
+  position:relative;overflow:hidden;isolation:isolate;color:#fff;
+  padding-block:clamp(56px,8vw,96px);
+  background:
+    radial-gradient(50% 120% at 50% -20%,rgba(214,188,131,.32),transparent 65%),
+    linear-gradient(150deg,var(--forest),var(--emerald))!important;
+}
+.ip__cta::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1.2px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(70% 80% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 80% at 50% 50%,#000,transparent);
+}
+.ip__cta h2{color:#fff!important;max-width:18ch;margin-inline:auto;font-size:clamp(28px,4vw,46px)}
+.ip__cta p{color:rgba(255,255,255,.8);margin:16px auto 30px;max-width:56ch}
+body .ip__cta .btn--primary{
+  background:var(--gold-grad);color:#2B2006;border-color:transparent;
+  box-shadow:0 18px 34px -16px rgba(0,0,0,.6);
+}
+body .ip__cta .btn--primary:hover{background:var(--gold-grad);filter:brightness(1.06);transform:translateY(-3px)}
+
+/* ---------- Small global refinements ---------- */
+.nav.is-solid,body .nav{box-shadow:0 1px 0 var(--beige-line),0 16px 36px -26px rgba(23,60,48,.35)}
+.btn{border-radius:12px}
+.btn--primary:focus-visible,.btn--ghost:focus-visible{outline-offset:4px;border-radius:12px}
+::selection{background:rgba(214,188,131,.45)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1000px){
+  .ip__acc{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .ip__hero{padding-top:calc(var(--nav-h) + 22px)}
+  .ip__art{max-width:520px;margin-inline:auto;width:100%}
+  .ip__art .ip__img{border-radius:20px 80px 20px 20px}
+  .ip__art::before{border-radius:20px 80px 20px 20px}
+  .ip__badge{left:8px;bottom:30px}
+  .ip__mo{grid-template-columns:78px 1fr 64px;padding:14px 16px}
+}
+@media(max-width:560px){
+  .ip__chips li{font-size:12.5px;padding:8px 13px 8px 12px}
+  .ip__row:hover{padding-left:18px}
+  .ip__steps li{padding:24px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ip__badge{animation:none}
+  .ip__art .ip__img img,.ip__steps li,.ip__mo,.ip__item,.ip__ex>*{transition:none}
+}

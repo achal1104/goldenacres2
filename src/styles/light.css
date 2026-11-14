@@ -1,0 +1,43 @@
+/* All-light override: no dark backgrounds anywhere. White + soft green-white base, emerald and gold as accents. */
+:root{--gold-text:linear-gradient(100deg,#7F6317 0%,#B8922F 50%,#D6B35A 100%);--soft:linear-gradient(135deg,#FFFFFF,var(--beige))}
+/* hero */
+.cine{background:#fff;color:var(--forest)}
+.cine__veil{background:linear-gradient(96deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.88) 42%,rgba(255,255,255,.32) 100%),linear-gradient(0deg,#fff 0%,transparent 30%),radial-gradient(60% 60% at 82% 12%,color-mix(in srgb,var(--champagne) 26%,transparent),transparent 70%)}
+.cine__label{color:var(--gold-ink)}.cine__label i{background:var(--metal)}
+.cine h1{color:var(--forest)}.cine h1 em{background:var(--gold-text);-webkit-background-clip:text;background-clip:text}
+.cine__sub{color:var(--ink-soft)}.cine__scroll{color:var(--ink-soft)}
+.btn--onphoto{color:var(--forest);border-color:var(--metal);background:rgba(255,255,255,.7)}.btn--onphoto:hover{background:#fff;border-color:var(--forest)}
+.cine__col+.cine__col{border-left-color:#fff}
+.nav--hero .logo{color:var(--forest)}.nav--hero .logo b{color:var(--gold-ink)}
+.nav--hero .nav__links a{color:var(--ink)}.nav--hero .nav__links a.is-active{color:var(--forest)}
+.nav--hero .burger{border-color:var(--beige-line);background:rgba(255,255,255,.8)}
+.nav--hero .burger span,.nav--hero .burger span::before,.nav--hero .burger span::after{background:var(--forest)}
+/* templates */
+.marq{background:var(--beige);color:var(--forest);border-block-color:var(--beige-line)}
+.stmt{background:linear-gradient(180deg,#fff,var(--beige));color:var(--forest)}.stmt__l{color:var(--gold-ink)}.stmt blockquote em{background:var(--gold-text);-webkit-background-clip:text;background-clip:text}
+.bt--dark{background:var(--soft);border:1px solid var(--beige-line);color:var(--forest)}.bt--dark strong{background:var(--gold-text);-webkit-background-clip:text;background-clip:text}.bt--dark svg{color:var(--metal)}
+.bt--photo{color:var(--forest)}.bt--photo::after{background:linear-gradient(0deg,rgba(255,255,255,.94),transparent 58%)}
+.dk{background:linear-gradient(180deg,var(--ivory),var(--beige))!important;color:var(--forest)}
+.dk .head h2{background:linear-gradient(120deg,var(--forest) 30%,var(--emerald) 60%,var(--metal) 100%);-webkit-background-clip:text;background-clip:text}.dk .lead{color:var(--ink-soft)}
+.ms h3{color:var(--forest)}.ms p,.ms__total{color:var(--ink-soft)}.ms__total b{color:var(--gold-ink)}
+.vband{background:var(--beige);color:var(--forest)}.vband strong{background:var(--gold-text);-webkit-background-clip:text;background-clip:text}.vband span{color:var(--ink-soft);opacity:1}
+.show__price{background:var(--soft);color:var(--forest)}.show__price small{color:var(--gold-ink)}.show__price strong{background:var(--gold-text);-webkit-background-clip:text;background-clip:text}.show__price span{color:var(--ink-soft);opacity:1}
+.htl__n,.rf__i{background:var(--gold-grad);color:#14110A}.htl__n{box-shadow:0 0 0 6px var(--beige),0 0 0 7px var(--metal)}.rf__i{box-shadow:0 0 0 6px var(--white),0 0 0 7px var(--metal)}
+.ticks svg{background:var(--beige);color:var(--emerald)}
+/* inner page banners */
+.pbanner{background:linear-gradient(120deg,#fff,var(--beige),#fff,var(--beige));background-size:300% 300%;color:var(--forest)}
+.pbanner::before{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.92)),radial-gradient(40% 70% at 85% 10%,color-mix(in srgb,var(--champagne) 28%,transparent),transparent 65%)}
+.pbanner .pbanner__img{opacity:.55}
+.pbanner__eyebrow{color:var(--gold-ink)}.pbanner h1{background:linear-gradient(100deg,var(--forest) 40%,var(--emerald) 100%);-webkit-background-clip:text;background-clip:text}.pbanner p{color:var(--ink-soft)}
+/* existing dark blocks */
+.offer__rail .is-total{background:var(--beige);color:var(--gold-ink)}.offer__rail .is-total .label{color:var(--gold-ink)}.offer__rail .is-total dd,.offer__rail .is-total dd .num{color:var(--forest)}.offer__rail .is-total dd em{color:var(--ink-soft)}
+.total,.hl{background:var(--soft);border:1px solid var(--beige-line)}.hl{border-left:4px solid var(--champagne)}
+.total__n,.hl__n{color:var(--forest)}.total__n small,.hl__n small,.total__l{color:var(--gold-ink)}.total__t,.hl__t{color:var(--ink-soft)}.hl__t{color:var(--forest)}
+.trust__d{background:#fff;color:var(--ink);border:1px solid var(--beige-line)}.trust__d h3{color:var(--forest)}.trust__d dl>div{border-bottom-color:var(--beige-line)}.trust__d dt,.trust__fn{color:var(--ink-soft)}.trust__d dd{color:var(--forest)}.trust__d dd.tbc{color:var(--gold-ink)}
+.calc__total{background:var(--beige);color:var(--ink)}.calc__total>p:first-child,.calc__tn small{color:var(--gold-ink)}.calc__tn{color:var(--forest)}.bar{background:rgba(8,57,42,.1)}.bar b{background:var(--emerald)}.bar__k{color:var(--ink-soft)}
+.chip.is-on{background:var(--gold-grad);border-color:var(--metal);color:#14110A}
+.step__n{background:var(--gold-grad)!important;color:#14110A!important}
+/* footer */
+body .foot{background:var(--beige)!important;background-image:none!important;color:var(--ink)}
+.foot .logo{color:var(--forest)}.foot .logo b{color:var(--gold-ink)}
+.foot__brand p,.foot__bar p{color:var(--ink-soft)}.foot h4{color:var(--forest)}.foot a,.foot__contact li{color:var(--ink)}.foot a:hover{color:var(--gold-ink)}.foot__contact svg{color:var(--gold-ink)}.foot__bar{border-top-color:var(--beige-line)}

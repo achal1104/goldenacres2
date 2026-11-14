@@ -1,0 +1,37 @@
+/* Premium polish layer: depth, motion and colour flow, driven by theme tokens */
+html{scroll-behavior:smooth}
+::selection{background:var(--champagne);color:var(--forest)}
+.section{position:relative}
+.section.bg-white{background-image:radial-gradient(55% 45% at 92% 0%,color-mix(in srgb,var(--champagne) 16%,transparent),transparent 70%),radial-gradient(45% 40% at 0% 100%,color-mix(in srgb,var(--emerald) 7%,transparent),transparent 70%)}
+.section.bg-beige{background-image:linear-gradient(180deg,var(--beige),color-mix(in srgb,var(--beige) 55%,var(--ivory)))}
+.section.bg-ivory{background-image:radial-gradient(50% 50% at 8% 10%,color-mix(in srgb,var(--champagne) 14%,transparent),transparent 70%)}
+.head h2{background:linear-gradient(120deg,var(--forest) 30%,var(--emerald) 60%,var(--metal) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s;border-radius:18px}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--champagne)}
+.btn{transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .35s,filter .35s}
+.btn--primary{box-shadow:0 10px 26px -12px var(--emerald)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 34px -14px var(--emerald);filter:saturate(1.08)}
+.nav__cta .btn{border-radius:999px;padding-inline:22px}
+.photo:not(.hero__img){border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md)}
+.photo img{transition:transform 1.4s var(--ease)}
+.photo:hover img{transform:scale(1.06)}
+.pbanner{background:linear-gradient(120deg,var(--forest),var(--emerald),var(--forest),var(--emerald));background-size:300% 300%;animation:gaflow 18s ease-in-out infinite}
+.pbanner h1{background:linear-gradient(100deg,#fff 40%,var(--champagne) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pbanner::before{background:radial-gradient(40% 70% at 85% 10%,color-mix(in srgb,var(--champagne) 32%,transparent),transparent 65%),radial-gradient(35% 60% at 8% 100%,color-mix(in srgb,var(--champagne) 18%,transparent),transparent 65%)}
+.pstats li{border-top:3px solid var(--champagne);transition:transform .5s var(--ease),box-shadow .5s}
+.pstats li:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.pstats strong{background:linear-gradient(135deg,var(--emerald),var(--metal));-webkit-background-clip:text;background-clip:text;color:transparent}
+.psteps li{transition:transform .5s var(--ease),box-shadow .5s;border-top:3px solid var(--metal)}
+.psteps li:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.pcta{background-image:linear-gradient(135deg,color-mix(in srgb,var(--champagne) 30%,var(--beige)),var(--beige) 55%,color-mix(in srgb,var(--emerald) 10%,var(--beige)))!important}
+body footer{background-image:linear-gradient(160deg,var(--forest),var(--emerald))!important}
+@keyframes gaflow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media (prefers-reduced-motion:reduce){.pbanner{animation:none}.card:hover,.btn:hover,.pstats li:hover,.psteps li:hover{transform:none}.photo:hover img{transform:none}}
+.btn--primary{background:var(--gold-grad)!important;color:#14110A!important;border-color:transparent!important;position:relative;overflow:hidden;font-weight:600}
+.btn--primary::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s var(--ease)}
+.btn--primary:hover::after{transform:translateX(130%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.pbanner .pbanner__img{position:absolute;inset:0;height:100%;border-radius:0;box-shadow:none;opacity:.34}
+.pbanner .pbanner__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05)}
+.pbanner::before{z-index:1}.pbanner .wrap{z-index:2}
+.pbanner h1{font-size:clamp(40px,6.4vw,84px)}

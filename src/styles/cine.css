@@ -1,0 +1,36 @@
+.cine{position:relative;display:flex;align-items:center;min-height:max(100svh,780px);color:#fff;overflow:hidden;background:var(--forest)}
+.cine__bg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.cine__col{position:relative;overflow:hidden}
+.cine__col+.cine__col{border-left:1px solid color-mix(in srgb,var(--champagne) 50%,transparent)}
+.cine .cine__col .photo{position:absolute;inset:0;height:100%;border-radius:0;box-shadow:none}
+.cine .cine__col .photo img{width:100%;height:100%;object-fit:cover;animation:slowzoom 26s ease-in-out infinite alternate}
+.cine__col--2 img{animation-delay:-8s!important;animation-direction:alternate-reverse!important}
+.cine__col--3 img{animation-delay:-15s!important}
+.cine__veil{position:absolute;inset:0;background:linear-gradient(96deg,color-mix(in srgb,var(--forest) 95%,transparent) 0%,color-mix(in srgb,var(--forest) 78%,transparent) 42%,color-mix(in srgb,var(--forest) 34%,transparent) 100%),linear-gradient(0deg,var(--forest) 0%,transparent 34%),radial-gradient(60% 60% at 82% 12%,color-mix(in srgb,var(--champagne) 30%,transparent),transparent 70%)}
+.cine .dust{z-index:1}
+.cine__in{position:relative;z-index:2;padding-top:calc(var(--nav-h) + 56px);padding-bottom:230px}
+.cine__label{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--champagne)}
+.cine__label i{width:54px;height:1px;background:var(--champagne)}
+.cine h1{font-family:var(--font-display);font-weight:500;font-size:clamp(46px,7.6vw,118px);line-height:.98;letter-spacing:-.015em;margin:22px 0 26px;color:#fff;max-width:13ch}
+.cine h1 .mask{padding-bottom:.1em}
+.cine h1 em{font-style:italic;font-weight:500;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.cine__sub{max-width:540px;font-size:clamp(15px,1.4vw,18px);line-height:1.75;color:rgba(255,255,255,.84);margin:0 0 34px}
+.cine__cta{display:flex;flex-wrap:wrap;gap:14px}
+.btn--onphoto{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+.btn--onphoto:hover{background:rgba(255,255,255,.16);border-color:var(--champagne)}
+.cine__stats{position:absolute;z-index:3;left:0;right:0;bottom:0}
+.cine__stats ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);max-width:860px;background:var(--ivory);color:var(--forest);border-top:3px solid var(--champagne);box-shadow:var(--shadow-lg)}
+.cine__stats li{display:flex;flex-direction:column;gap:6px;padding:26px 32px 24px}
+.cine__stats li+li{border-left:1px solid var(--beige-line)}
+.cine__stats b{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.4vw,46px);line-height:1;white-space:nowrap}
+.cine__stats small{font-family:var(--font-body);font-size:.34em;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.cine__stats span{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.cine__scroll{position:absolute;z-index:3;right:32px;bottom:60px;display:flex;flex-direction:column;align-items:center;gap:12px;writing-mode:vertical-rl;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.cine__scroll i{width:1px;height:70px;background:linear-gradient(var(--champagne),transparent);animation:cscroll 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cscroll{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.nav--hero .logo{color:var(--ivory)}.nav--hero .logo b{color:var(--champagne)}
+.nav--hero .nav__links a{color:#fff}.nav--hero .nav__links a.is-active{color:var(--champagne)}
+.nav--hero .burger{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12)}
+.nav--hero .burger span,.nav--hero .burger span::before,.nav--hero .burger span::after{background:#fff}
+@media(max-width:860px){.cine__bg{grid-template-columns:1fr}.cine__col:not(:first-child){display:none}.cine__scroll{display:none}.cine__in{padding-bottom:210px}.cine__stats li{padding:18px 14px}.cine__stats b{font-size:24px}.cine__stats span{font-size:10px;letter-spacing:.1em}}
+@media(prefers-reduced-motion:reduce){.cine .cine__col .photo img,.cine__scroll i{animation:none}}
